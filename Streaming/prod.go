@@ -1,14 +1,18 @@
 package Stream
 
 import (
-	"time"
+	"log"
+	"os"
 
 	"github.com/nats-io/stan.go"
 )
 
 func SendMsg(sc stan.Conn) {
 
-	sc.Publish("subj_str", []byte("hello world"))
-	time.Sleep(2 * time.Second)
+	data, err := os.ReadFile("data/model.json")
+	if err != nil {
+		log.Fatal(err)
+	}
+	sc.Publish("subj_str", data)
 
 }
