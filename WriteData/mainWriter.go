@@ -31,4 +31,5 @@ func main() {
 	go Streaming.SendMsg(sc, &s.wg, &s.m)
 	go Streaming.ReadMsg(sc, db, &s.wg, &s.m)
 	s.wg.Wait()
+
 }

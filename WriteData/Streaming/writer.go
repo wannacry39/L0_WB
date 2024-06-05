@@ -20,9 +20,9 @@ func ReadMsg(sc stan.Conn, db *sql.DB, wg *sync.WaitGroup, m *sync.RWMutex) {
 			}
 
 			defer wg.Done()
-			fmt.Print("written")
+			fmt.Print("written\n")
 		} else {
-			fmt.Print("invalid data")
+			fmt.Print("invalid data\n")
 			log.Fatal()
 		}
 
